@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# Read the data, specifying the custom delimiter (dash with possible spaces around it)
+
 data_path = 'data/Question 2.txt'
 data = pd.read_csv(data_path, delimiter=r' - ', names=["Aquarium", "Type"])
 
@@ -26,15 +26,15 @@ print("Counts for each category:\n", counts)
 if not counts.empty:
     labels = counts.index
     sizes = counts.values
-    colors = ['#ff9999', '#66b3ff']  # colors for each segment
+    colors = ['#ff9999', '#66b3ff']
 
     # Create an explode array with the same length as the number of segments
-    explode = [0.1] * len(labels)  # Explode the first segment (for-profit) slightly, adjust if necessary
+    explode = [0.1] * len(labels)
 
     # Plot the pie chart
     plt.figure(figsize=(8, 8))
     plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
-    plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+    plt.axis('equal') 
     plt.title('For-Profit vs Non-Profit Aquariums')
     plt.tight_layout()
 
